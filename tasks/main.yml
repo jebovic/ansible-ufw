@@ -1,0 +1,22 @@
+---
+
+- name: install packages
+  apt:
+    name:  "{{ item }}"
+    state:              latest
+    install_recommends: false
+    update_cache:       yes
+    cache_valid_time:   300
+  with_items: "{{ ufw_packages }}"
+
+- name: reset firewall
+  ufw:
+    state: reset
+  when: ufw_reset
+
+- include: config.yml
+
+- name: start firewall
+  ufw:
+    state: "{{ ufw_state }}"
+    logging: "{{ ufw_logging }}"
