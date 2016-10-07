@@ -3,6 +3,14 @@ env:
     init: "/sbin/init"
     run_opts: ""
     playbook: test.yml
+  - distro: ubuntutrusty
+    init: "/sbin/init"
+    run_opts: ""
+    playbook: test.yml
+  - distro: ubuntuxenial
+    init: "/sbin/init"
+    run_opts: ""
+    playbook: test.yml
 
 services:
   - docker
