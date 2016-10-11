@@ -35,6 +35,9 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
   # test role tasks
+  - docker exec "$(cat ${container_id})" ufw version
+  - docker exec "$(cat ${container_id})" ufw status verbose
+  - docker exec "$(cat ${container_id})" ufw app list
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
