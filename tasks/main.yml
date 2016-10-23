@@ -13,8 +13,10 @@
   ufw:
     state: reset
   when: ufw_reset
+  tags: ufw_reset
 
 - include: config.yml
+  tags: ufw_config
 
 - name: start firewall
   ufw:

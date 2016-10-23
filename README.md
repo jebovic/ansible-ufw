@@ -8,7 +8,7 @@ Install and configure ufw
 Role Variables
 --------------
 
-```
+```yaml
 # UFW install configuration
 ufw_packages:
   - ufw
@@ -33,11 +33,17 @@ ufw_applications: []
 Example Playbook
 ----------------
 
+```yaml
+- hosts: servers
+  roles:
+     - { role: jebovic.ufw }
 ```
-    - hosts: servers
-      roles:
-         - { role: jebovic.ufw }
-```
+
+Tags
+----
+
+* ufw_reset : only reset firewall rules
+* ufw_config : only update config and reload firewall
 
 License
 -------
