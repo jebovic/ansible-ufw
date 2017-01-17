@@ -2,11 +2,11 @@
 
 - name: install packages
   apt:
-    name:  "{{ item }}"
-    state:              latest
+    name: "{{ item }}"
+    state: latest
     install_recommends: no
-    update_cache:       yes
-    cache_valid_time:   86400
+    update_cache: yes
+    cache_valid_time: 86400
   with_items: "{{ ufw_packages }}"
 
 - name: reset firewall
